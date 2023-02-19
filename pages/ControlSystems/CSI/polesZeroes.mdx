@@ -1,0 +1,45 @@
+import {OverleafDeployButton} from "@/components/deployToOverleaf"
+
+
+# Description
+The code above is a LaTeX document that generates a standalone TikZ picture. The TikZ package is used to draw a plot with axes representing the real part of a complex number ($\sigma$) and the imaginary part of a complex number ($j\omega_d$) in the complex plane.
+
+The code draws the axes and marks the origin with a cross-out circle. It also draws dashed lines representing the angle $\theta=120^o$ from the positive $\sigma$ axis, and another dashed line representing the angle $\theta=30^o$ from the positive $j\omega\_d$ axis. The code also marks several points on the plot, including a point at (0,0), a point at $(j^2\sqrt{3},0)$, a point at $(-2,0)$, and a point at -4,0).
+
+Overall, the code is generating a visual representation of a complex number system and illustrating the locations of certain points and angles within that system.
+
+
+## Keywords
+tikz, shapes.misc, draw, node, dashed, solid, cross out, fill, black, -latex, -stealth.
+
+## Source Code
+
+
+![ControlSystems/CSI](/ControlSystems/CSI/polesZeroes.png "polesZeroes")
+
+```tex copy
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.misc}
+\begin{document}
+\begin{tikzpicture}
+% Axes:
+\draw [-latex] (-5,0) -- (2.5,0) node [above left]  {$\sigma$};
+\draw [-latex] (0,-1) -- (0,4) node [below right] {$j\omega_d$};
+\node[cross out,draw=black] at (0,0) {};
+
+\draw[dashed] (0,0) -- (125:3.5) node[solid, cross out,draw=black] {};
+\draw[black, -stealth] (1.75,0) node[pos=0.1,above right] {$\theta=120^o$} arc (0:125:1.75);
+
+\draw[dashed]  (-2,0) node[below left] {$-2$} -- (-2,2.867);
+\draw[dashed]  (0,2.867) node[below left] {$j2\sqrt{(3)}$} -- (-2,2.867);
+\draw[dashed]  (125:3.5) -- (-4,0) node[solid, cross out,draw=black] {};
+\draw (-4,0) node [below left] {-4};
+\draw[black, -stealth] (-2,2)  arc (0:-180:0.3);
+\draw (-3,2.25)node[] {$\theta=30^o$};
+\end{tikzpicture}
+\end{document}
+
+```
+
+<OverleafDeployButton texFilePath="https://raw.githubusercontent.com/FriendlyUser/LatexDiagrams/master/ControlSystems/CSI/polesZeroes.tex"/>
