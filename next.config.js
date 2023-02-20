@@ -9,5 +9,5 @@ module.exports = {
   images: {
     unoptimized: true,
   },
-   basePath: process.env.BASE_URL || ""
+   // basePath: process.env.BASE_URL || ""
 };
