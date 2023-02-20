@@ -16,8 +16,11 @@ const config: DocsThemeConfig = {
   editLink: {
     component({children, className, filePath}) {
       // adjusted filePath
-      const adjustedFilePath = filePath.replace("/pages", "/blob/master").replace(".mdx", ".tex")
-      return (<a className={className} href={adjustedFilePath}>{children}</a>)
+      let adjustedFilePath = filePath
+      if (!filePath.includes("/index")) {
+        adjustedFilePath = filePath.replace("/pages", "/blob/master").replace(".mdx", ".tex")
+      } 
+      return (<a className={className} href={adjustedFilePath}>{children} → </a>)
     }
   }
 }
