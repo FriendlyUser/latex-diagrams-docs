@@ -17,7 +17,7 @@ const config: DocsThemeConfig = {
     component({children, className, filePath}) {
       // adjusted filePath
       const adjustedFilePath = filePath.replace("/pages", "/blob/master").replace(".mdx", ".tex")
-      return (<a className=className href={adjustedFilePath}>{children}</a>)
+      return (<a className={className} href={adjustedFilePath}>{children}</a>)
     }
   }
 }
