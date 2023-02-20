@@ -18,6 +18,7 @@ const config: DocsThemeConfig = {
       // adjusted filePath
       let adjustedFilePath = filePath
       if (!filePath.includes("/index")) {
+        // need another adjustment for index.mdx or empty / ControlSystems/CSI/
         adjustedFilePath = filePath.replace("/pages", "/blob/master").replace(".mdx", ".tex")
       } 
       return (<a className={className} href={adjustedFilePath}>{children} → </a>)
