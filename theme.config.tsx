@@ -36,7 +36,7 @@ const config: DocsThemeConfig = {
 
         }
         console.log(adjustedFilePath)
-        adjustedFilePath = adjustedFilePath.replace(newPrePage, "").replace("pages", `/blob/master/${newPrePage}`).replace(".mdx", ".tex")
+        adjustedFilePath = adjustedFilePath.replace(newPrePage, "").replace("pages", `blob/master/${newPrePage}`).replace(".mdx", ".tex")
       }
       const fullPath = "https://github.com/FriendlyUser/LatexDiagrams/" + adjustedFilePath
       return (<a className={className} href={fullPath}>{children} → </a>)
