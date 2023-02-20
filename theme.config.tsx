@@ -11,8 +11,15 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: 'https://github.com/FriendlyUser/LatexDiagrams',
   footer: {
-    text: 'Nextra Docs Template',
+    text: 'Latex Diagrams',
   },
+  editLink: {
+    component({children, className, filePath}) {
+      // adjusted filePath
+      const adjustedFilePath = filePath.replace("/pages", "/blob/master").replace(".mdx", ".tex")
+      return <a className=className href={adjustedFilePath}>{children}</a>
+    }
+  }
 }
 
 export default config
